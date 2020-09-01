@@ -1,19 +1,11 @@
-%include "stud_io.inc"
-global _start
-
-;section .data
-;array	db '123', 0
+global _ft_strlen
 
 section .text
-_start:	xor		ecx, ecx
-		;mov		ebx, edi
-		cmp		byte[edi], 0
+_ft_strlen:	
+		xor		rax, rax
+		cmp		byte[rdi + rax], 0
 		je		finish
-again:	inc		ecx
-		PRINT	"1"
-		cmp		byte[edi + ecx], 0
+again:	inc		rax
+		cmp		byte[rdi + rax], 0
 		jne		again
-		FINISH
-finish:	PRINT	"0"
-		FINISH
-
+finish:	ret
